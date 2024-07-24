@@ -27,9 +27,8 @@
         // Get the platform
         const platform = window.Telegram.WebApp.platform;
 
-        // Get the user and receiver objects
+        // Get the user object
         const user = window.Telegram.WebApp.initDataUnsafe.user;
-        const receiver = window.Telegram.WebApp.initDataUnsafe.receiver;
 
         // Create a function to safely stringify objects
         function safeStringify(obj) {
@@ -45,7 +44,7 @@
                 <p>Bot Version: ${botVersion}</p>
                 <p>Platform: ${platform}</p>
                 <p>User: ${safeStringify(user)}</p>
-                <p>Receiver: ${safeStringify(receiver)}</p>
+                <p>Premium User: ${user && user.is_premium ? 'Yes' : 'No'}</p>
             `;
         }
     });
