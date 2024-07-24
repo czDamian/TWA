@@ -30,21 +30,16 @@
         // Get the user object
         const user = window.Telegram.WebApp.initDataUnsafe.user;
 
-        // Create a function to safely stringify objects
-        function safeStringify(obj) {
-            return JSON.stringify(obj, (key, value) =>
-                typeof value === 'undefined' ? 'undefined' : value
-            );
-        }
-
         // Display the information
         const infoElement = document.getElementById('app-info');
         if (infoElement) {
             infoElement.innerHTML = `
                 <p>Bot Version: ${botVersion}</p>
                 <p>Platform: ${platform}</p>
-                <p>User: ${safeStringify(user)}</p>
-                <p>Premium User: ${user && user.is_premium ? 'Yes' : 'No'}</p>
+                <p>User ID: ${user ? user.id : 'N/A'}</p>
+                <p>First Name: ${user ? user.first_name : 'N/A'}</p>
+                <p>Username: ${user ? user.username || 'N/A' : 'N/A'}</p>
+                <p>Can you afford premium? : ${user && user.is_premium ? 'Yes' : 'No'}</p>
             `;
         }
     });
