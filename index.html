@@ -17,6 +17,7 @@
 </head>
 <body>
     <div id="bot-version"></div>
+    <div id="user-platform"></div>
     <div> Bot version should be displayed above if everything is correct </div>
 
     <script>
@@ -32,6 +33,14 @@
             if (versionElement) {
                 versionElement.textContent = `Bot Version: ${botVersion}`;
             }
+            // Get the platform
+const platform = window.Telegram.WebApp.platform;
+
+// Display the platform to the user
+const platformElement = document.getElementById('user-platform');
+if (platformElement) {
+    platformElement.textContent = `Platform: ${platform}`;
+}
         });
     </script>
 </body>
